@@ -455,7 +455,7 @@
                             <input type="text" id="contact-info" required class="w-full bg-[#4A1824] border border-white/10 focus:border-[#C9A46A] rounded-2xl px-5 py-3.5 text-sm placeholder:text-[#EDE0C8]/40 outline-none transition">
                         </div>
                     </div>
-                    
+
                     <div>
                         <label class="block text-xs tracking-widest mb-1.5 text-[#C9A46A]">ТИП ПРОЕКТА</label>
                         <select id="project-type" class="w-full bg-[#4A1824] border border-white/10 focus:border-[#C9A46A] rounded-2xl px-5 py-3.5 text-sm outline-none transition">
@@ -466,17 +466,15 @@
                             <option value="Консультация">Только консультация</option>
                         </select>
                     </div>
-                    
+
                     <div>
                         <label class="block text-xs tracking-widest mb-1.5 text-[#C9A46A]">СООБЩЕНИЕ</label>
                         <textarea id="message" rows="4" required class="w-full bg-[#4A1824] border border-white/10 focus:border-[#C9A46A] rounded-3xl px-5 py-4 text-sm placeholder:text-[#EDE0C8]/40 outline-none transition resize-y min-h-[120px]" placeholder="Расскажите немного о вашем проекте..."></textarea>
                     </div>
-                    
+
                     <button type="submit" class="gold-button w-full py-4 rounded-2xl text-base tracking-[1.5px] font-medium mt-2">
                         ОТПРАВИТЬ ЗАПРОС
                     </button>
-                    
-                    <p class="text-center text-xs text-[#C9A46A]/50">Я обычно отвечаю в течение 24 часов</p>
                 </form>
             </div>
         </div>
@@ -589,27 +587,50 @@
         
         async function submitContactForm(e) {
             e.preventDefault();
+            
             const form = e.target;
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            
+            const originalText = submitBtn.innerHTML;
+
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                contact: document.getElementById('contact-info').value.trim(),
+                projectType: document.getElementById('project-type').value,
+                message: document.getElementById('message').value.trim()
+            };
+
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `ОТПРАВЛЯЕМ...`;
-            
-            setTimeout(() => {
-                form.innerHTML = `
-                    <div class="text-center py-8">
-                        <div class="mx-auto w-16 h-16 bg-[#C9A46A]/10 rounded-full flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-[#C9A46A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                            </svg>
+            submitBtn.innerHTML = 'ОТПРАВЛЯЕМ...';
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    form.innerHTML = `
+                        <div class="text-center py-8">
+                            <div class="mx-auto w-16 h-16 bg-[#C9A46A]/10 rounded-full flex items-center justify-center mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-[#C9A46A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-medium tracking-tight mb-3">Спасибо!</h3>
+                            <p class="text-[#EDE0C8]/85">Ваша заявка отправлена. Я свяжусь с вами в течение 24 часов.</p>
                         </div>
-                        <h3 class="text-2xl font-medium tracking-tight mb-3">Спасибо!</h3>
-                        <p class="text-[#EDE0C8]/85">Ваша заявка отправлена. Я свяжусь с вами в течение 24 часов.</p>
-                        <button onclick="location.reload()" class="mt-8 outline-gold-button px-8 py-3 rounded-full text-sm tracking-widest">ОТПРАВИТЬ ЕЩЁ ОДНУ ЗАЯВКУ</button>
-                    </div>
-                `;
-            }, 900);
+                    `;
+                } else {
+                    throw new Error(result.error || 'Ошибка');
+                }
+            } catch (error) {
+                alert('Не удалось отправить заявку. Попробуйте позже или напишите мне напрямую.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         }
         
         function downloadVCard() {
