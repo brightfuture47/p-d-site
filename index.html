@@ -368,54 +368,56 @@
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div onclick="showProjectModal(0)" class="portfolio-card elegant-card rounded-3xl overflow-hidden cursor-pointer group bg-[#4A1824]">
-                <div class="relative aspect-[4/3]">
-                    <img src="imagine_images/3JrUN.jpg" alt="Гостиная" class="w-full h-full object-cover">
-                    <div class="portfolio-overlay absolute inset-0 flex items-end p-6">
-                        <div>
-                            <span class="text-xs tracking-[2px] text-[#C9A46A]">МОСКВА • 2024</span>
-                            <h4 class="text-white text-xl font-medium tracking-tight mt-1">Гостиная в ЖК «Кутузовский»</h4>
-                        </div>
-                    </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Проект 1 -->
+            <div onclick="showProjectCarousel(0)" class="group cursor-pointer">
+                <div class="overflow-hidden rounded-3xl aspect-[3/4] bg-[#4A1824]">
+                    <img src="imagine_images\project1\IMG_4855.webp" alt="Проект 1" 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="mt-4 px-1">
+                    <span class="text-xs tracking-[2px] text-[#C9A46A]">СТАВРОПОЛЬ • 2025</span>
+                    <h4 class="text-white text-xl font-medium tracking-tight mt-1">Английский квартал с.Татарка</h4>
                 </div>
             </div>
 
-            <div onclick="showProjectModal(1)" class="portfolio-card elegant-card rounded-3xl overflow-hidden cursor-pointer group bg-[#4A1824]">
-                <div class="relative aspect-[4/3]">
-                    <img src="imagine_images/xcq4T.jpg" alt="Спальня" class="w-full h-full object-cover">
-                    <div class="portfolio-overlay absolute inset-0 flex items-end p-6">
-                        <div>
-                            <span class="text-xs tracking-[2px] text-[#C9A46A]">ПОДМОСКОВЬЕ • 2023</span>
-                            <h4 class="text-white text-xl font-medium tracking-tight mt-1">Главная спальня загородного дома</h4>
-                        </div>
-                    </div>
+            <!-- Проект 2 -->
+            <div onclick="showProjectCarousel(1)" class="group cursor-pointer">
+                <div class="overflow-hidden rounded-3xl aspect-[3/4] bg-[#4A1824]">
+                    <img src="imagine_images\project2\IMG_9894.webp" alt="Проект 2" 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="mt-4 px-1">
+                    <span class="text-xs tracking-[2px] text-[#C9A46A]">СТАВРОПОЛЬ • 2026</span>
+                    <h4 class="text-white text-xl font-medium tracking-tight mt-1">Кухня-гостиная в частном доме</h4>
                 </div>
             </div>
 
-            <div onclick="showProjectModal(2)" class="portfolio-card elegant-card rounded-3xl overflow-hidden cursor-pointer group bg-[#4A1824]">
-                <div class="relative aspect-[4/3]">
-                    <img src="imagine_images/hFHFu.jpg" alt="Столовая" class="w-full h-full object-cover">
-                    <div class="portfolio-overlay absolute inset-0 flex items-end p-6">
-                        <div>
-                            <span class="text-xs tracking-[2px] text-[#C9A46A]">САНКТ-ПЕТЕРБУРГ • 2024</span>
-                            <h4 class="text-white text-xl font-medium tracking-tight mt-1">Столовая в исторической квартире</h4>
-                        </div>
-                    </div>
+            <!-- Проект 3 -->
+            <div onclick="showProjectCarousel(2)" class="group cursor-pointer">
+                <div class="overflow-hidden rounded-3xl aspect-[3/4] bg-[#4A1824]">
+                    <img src="imagine_images\project3\IMG_4883.webp" alt="Проект 3" 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="mt-4 px-1">
+                    <span class="text-xs tracking-[2px] text-[#C9A46A]">СТАВРОПОЛЬ • 2024</span>
+                    <h4 class="text-white text-xl font-medium tracking-tight mt-1">Сан.узлы частного дома</h4>
                 </div>
             </div>
 
-            <div onclick="showProjectModal(3)" class="portfolio-card elegant-card rounded-3xl overflow-hidden cursor-pointer group bg-[#4A1824]">
-                <div class="relative aspect-[4/3]">
-                    <img src="imagine_images/tlaBg.jpg" alt="Ванная" class="w-full h-full object-cover">
-                    <div class="portfolio-overlay absolute inset-0 flex items-end p-6">
-                        <div>
-                            <span class="text-xs tracking-[2px] text-[#C9A46A]">МОСКВА • 2023</span>
-                            <h4 class="text-white text-xl font-medium tracking-tight mt-1">Ванная комната в пентхаусе</h4>
-                        </div>
-                    </div>
+            <!-- Проект 4 -->
+            <div onclick="showProjectCarousel(3)" class="group cursor-pointer">
+                <div class="overflow-hidden rounded-3xl aspect-[3/4] bg-[#4A1824]">
+                    <img src="imagine_images\project 4\IMG_5053.webp" alt="Проект 4" 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="mt-4 px-1">
+                    <span class="text-xs tracking-[2px] text-[#C9A46A]">СТАВРОПОЛЬ • 2026</span>
+                    <h4 class="text-white text-xl font-medium tracking-tight mt-1">Спальня ЖК Основа</h4>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -487,6 +489,44 @@
             <div>ДИЗАЙН С ЛЮБОВЬЮ К ДЕТАЛЯМ</div>
         </div>
     </footer>
+
+    <!-- PROJECT CAROUSEL MODAL -->
+    <div id="carousel-modal" onclick="hideCarouselModal()" 
+        class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+        
+        <div onclick="event.stopImmediatePropagation()" 
+            class="relative w-full max-w-5xl mx-auto">
+            
+            <!-- Close button -->
+            <button onclick="hideCarouselModal()" 
+                    class="absolute -top-12 right-0 text-white/70 hover:text-white text-3xl z-10">×</button>
+
+            <!-- Image -->
+            <div class="relative flex items-center justify-center bg-black rounded-2xl overflow-hidden" 
+                style="min-height: 60vh; max-height: 82vh;">
+                <img id="carousel-image" class="max-h-[82vh] w-auto max-w-full object-contain" alt="">
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex items-center justify-between mt-4 px-2">
+                <button onclick="prevCarouselImage()" 
+                        class="text-white/70 hover:text-white px-4 py-2 text-2xl">←</button>
+                
+                <div class="text-white/80 text-sm tracking-widest">
+                    <span id="carousel-counter"></span>
+                </div>
+                
+                <button onclick="nextCarouselImage()" 
+                        class="text-white/70 hover:text-white px-4 py-2 text-2xl">→</button>
+            </div>
+
+            <!-- Project info -->
+            <div class="text-center mt-4">
+                <h3 id="carousel-title" class="text-white text-2xl tracking-tight"></h3>
+                <p id="carousel-location" class="text-[#C9A46A] text-sm tracking-[2px] mt-1"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- PROJECT MODAL -->
     <div id="project-modal" onclick="hideProjectModal()" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
@@ -668,6 +708,106 @@ END:VCARD`;
         }
         
         window.onload = initializeSite;
+
+        let currentProject = 0;
+        let currentImageIndex = 0;
+        let currentProjectImages = [];
+
+        const projectsData = [
+            {
+                title: "Английский квартал с.Татарка",
+                location: "СТАВРОПОЛЬ • 2025",
+                images: [
+                    "imagine_images/project1/IMG_4855.webp",
+                    "imagine_images/project1/IMG_4856.webp",
+                    "imagine_images/project1/IMG_4871.webp",
+                    "imagine_images/project1/IMG_4888.webp",
+                    "imagine_images/project1/IMG_4889.webp"
+                ]
+            },
+            {
+                title: "Кухня-гостиная в частном доме",
+                location: "СТАВРОПОЛЬ • 2026",
+                images: [
+                    "imagine_images/project2/IMG_9894.webp",
+                    "imagine_images/project2/IMG_9891.webp",
+                    "imagine_images/project2/IMG_9892.webp",
+                    "imagine_images/project2/IMG_9893.webp",
+                    "imagine_images/project2/IMG_9886.webp"
+                ]
+            },
+            {
+                title: "Сан.узлы частного дома",
+                location: "СТАВРОПОЛЬ • 2024",
+                images: [
+                    "imagine_images/project3/IMG_4883.webp",
+                    "imagine_images/project3/IMG_4881.webp",
+                    "imagine_images/project3/IMG_4882.webp",
+                    "imagine_images/project3/IMG_4884.webp",
+                    "imagine_images/project3/IMG_4890.webp"
+                ]
+            },
+            {
+                title: "Спальня ЖК Основа",
+                location: "СТАВРОПОЛЬ • 2026",
+                images: [
+                    "imagine_images/project-4/IMG_5051.webp",
+                    "imagine_images/project-4/IMG_5053.webp"
+                ]
+            }
+        ];
+
+        function showProjectCarousel(projectIndex) {
+            currentProject = projectIndex;
+            currentImageIndex = 0;
+            currentProjectImages = projectsData[projectIndex].images;
+
+            const modal = document.getElementById('carousel-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            updateCarouselImage();
+        }
+
+        function updateCarouselImage() {
+            const img = document.getElementById('carousel-image');
+            const title = document.getElementById('carousel-title');
+            const location = document.getElementById('carousel-location');
+            const counter = document.getElementById('carousel-counter');
+
+            img.src = currentProjectImages[currentImageIndex];
+            title.textContent = projectsData[currentProject].title;
+            location.textContent = projectsData[currentProject].location;
+            counter.textContent = `${currentImageIndex + 1} / ${currentProjectImages.length}`;
+        }
+
+        function nextCarouselImage() {
+            currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+            updateCarouselImage();
+        }
+
+        function prevCarouselImage() {
+            currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+            updateCarouselImage();
+        }
+
+        function hideCarouselModal() {
+            const modal = document.getElementById('carousel-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('carousel-modal');
+                if (!modal.classList.contains('hidden')) {
+                    hideCarouselModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
